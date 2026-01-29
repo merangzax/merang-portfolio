@@ -13,6 +13,19 @@
   }
 }
 
+.black-page {
+  background-color: #000;  /* black background */
+  color: #fff;           
+  min-height: 100vh;      
+  padding: 2rem;          
+}
+
+.black-page h1 {
+  font-size: clamp(1rem, 9vw, 10rem);  /* heading scales nicely */
+}
+
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
