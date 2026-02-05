@@ -58,6 +58,7 @@ const goNext = () => {
 
 
   return (
+    <div>
     <Box
       sx={{
         backgroundColor: "black",
@@ -142,7 +143,7 @@ const goNext = () => {
         sx={{ 
           position: "fixed",     
           top: 16,              
-          left: 35,
+          right: 50,
           zIndex: 999,
           mt: 4, 
           color:"white", 
@@ -151,14 +152,62 @@ const goNext = () => {
         onClick={() => navigate(-1)}
       >
         <Typography
-   variant='h6'
+   variant='h5'
    align='center'
    mb={2}
    >
-  {"< Back"}
+  {"X"}
   </Typography>
       </Button>
+
+
+    {/* Thumbnail strip */}
+<Box
+  sx={{
+    position: "fixed", 
+    bottom: 0,           
+    display: "flex",
+    overflowX: "auto",
+    mt: 4,
+    width: "90vw",
+    gap: 1,
+    py: 1,
+    px: 0.5,
+    backgroundColor: "#111", 
+    borderRadius: 1,
+  }}
+>
+  {itemData.map((item, index) => (
+    <Box
+      key={item.id}
+      onClick={() => setCurrentIndex(index)}
+      sx={{
+        flex: "0 0 auto",
+        width: 60,
+        height: 60,
+        borderRadius: 1.5,
+        border: currentIndex === index ? "2px solid white" : "2px solid transparent",
+        cursor: "pointer",
+        overflow: "hidden",
+        transition: "border 0.2s",
+      }}
+    >
+      <img
+        src={item.img}
+        alt={item.title}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
     </Box>
+  ))}
+</Box>
+
+
+    </Box>
+    </div>
   );
 }
 
