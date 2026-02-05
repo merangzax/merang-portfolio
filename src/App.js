@@ -29,7 +29,6 @@ useEffect(() => {
   setItemData(data);
 }, []); // ← runs ONCE
 
-
 const theme = useTheme();
 const sm = useMediaQuery(theme.breakpoints.up('sm'));   // ≥600px
 const md = useMediaQuery(theme.breakpoints.up('md'));   // ≥900px
