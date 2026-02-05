@@ -14,8 +14,8 @@
 }
 
 .black-page {
-  background-color: #000;  /* black background */
-  color: #fff;           
+  background-color: #171717;  /* black background */
+  color: #ffffff;           
   min-height: 100vh;      
   padding: 2rem;          
 }

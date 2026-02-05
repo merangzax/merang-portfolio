@@ -94,10 +94,8 @@ const goNext = () => {
       />
 
       {/* Left button */}
- 
-      <Typography
-        onClick={goPrev}
-        variant='h4'
+      <Button
+       onClick={goPrev}
         align='center'
         mb={2}
         sx={{
@@ -108,15 +106,18 @@ const goNext = () => {
           color: "white",
           cursor:"pointer"
         }}
-        >
+      >
+      <Typography 
+      variant='h4'
+      >
         {"<"}
         </Typography>  
+        </Button>
 
 
       {/* Right button */}
-      <Typography
-        onClick={goNext}
-        variant='h4'
+     <Button
+       onClick={goNext}
         align='center'
         mb={2}
         sx={{
@@ -127,23 +128,24 @@ const goNext = () => {
           color: "white",
           cursor:"pointer"
         }}
-        >
+      >
+      <Typography 
+      variant='h4'
+      >
         {">"}
         </Typography>  
+        </Button>
 
 
       {/* Back button */}
       <Button
-        variant="contained"
         sx={{ 
           position: "fixed",     
           top: 16,              
           left: 35,
           zIndex: 999,
           mt: 4, 
-          backgroundColor:"black", 
           color:"white", 
-          borderRadius:0,
           cursor:"pointer"
          }}
         onClick={() => navigate(-1)}

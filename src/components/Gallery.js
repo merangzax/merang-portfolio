@@ -18,7 +18,7 @@ useEffect(() => {
     id: index,
     img: img,
     title: img.split("/").pop().split(".")[0],
-    cols: Math.floor(Math.random() * 2) + 1,
+    cols: Math.floor(Math.random() * 1) + 1,
     rows: Math.floor(Math.random() * 2) + 1,
   }));
 
@@ -56,13 +56,13 @@ if (lg) rowHeight = 250;
    mt={5}
    mb={5}
    >
-  [ARTWORK GALLERY]
+  [ ARTWORK GALLERY ]
   </Typography>
 
   <Box display="flex" justifyContent="center">
   <ImageList
       sx={{ width: "90vw", height: "100wh", overflow: 'visible',  }}
-      variant="quilted"
+      variant="masonry"
       cols={cols}
       rowHeight={rowHeight}
       
@@ -87,8 +87,8 @@ if (lg) rowHeight = 250;
         borderRadius: 3,
         overflow: "hidden",
         transition: "transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease",
-        transform: isHovered ? "scale(1.02)" : isDimmed ? "scale(0.93)" : "scale(0.96)",
-        opacity: isDimmed ? 0.7 : 1,
+        transform: isHovered ? "scale(1.01)" : isDimmed ? "scale(0.94)" : "scale(0.96)",
+        opacity: isDimmed ? 0.9 : 1,
         boxShadow: isHovered ? "0 0 30px rgba(255, 255, 255, 0.93)" : "none",
         zIndex: isHovered ? 10 : 1,
         cursor:"pointer"
