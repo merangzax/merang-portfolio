@@ -2,6 +2,9 @@ import '../App.css';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Typography, ImageList, ImageListItem, useTheme, useMediaQuery } from '@mui/material';
+import Header from './Header';
+import Footer from './Footer';
+
 const importAll = (r) => r.keys().map(r);
 const images = importAll(require.context('../img', false, /\.(png|jpe?g|svg)$/));
 
@@ -37,27 +40,45 @@ const md = useMediaQuery(theme.breakpoints.up('md'));   // ≥900px
 const lg = useMediaQuery(theme.breakpoints.up('lg'));   // ≥1200px
 
 let cols = 2;
-if (sm) cols = 4;
-if (md) cols = 6;
-if (lg) cols = 8;
+if (sm) cols = 2;
+if (md) cols = 4;
+if (lg) cols = 6;
 
 let rowHeight = 200;
-if (sm) rowHeight = 200;
-if (md) rowHeight = 200;
-if (lg) rowHeight = 250;
+// if (sm) rowHeight = 200;
+// if (md) rowHeight = 200;
+// if (lg) rowHeight = 250;
   
   return (
    <div className='black-page'>
 
-   <Typography
-   variant='h2'
-   fontWeight="bold"
+  <Header/>
+
+  <Box display="flex" justifyContent="center">
+  <Typography
+   variant='h4'
+  //  fontWeight="bold"
    align='center'
-   mt={5}
-   mb={5}
+   mt={8}
+   mb={11}
+   ml={5}
    >
-  [ ARTWORK GALLERY ]
+  {"Artwork Gallery"}
   </Typography>
+
+  <Typography
+   variant='captions'
+  //  fontWeight="bold"
+   align='center'
+   mt={8}
+   mb={11}
+   ml={1}
+   >
+  {"(All)"}
+  </Typography>
+
+</Box>
+ 
 
   <Box display="flex" justifyContent="center">
   <ImageList
@@ -65,6 +86,7 @@ if (lg) rowHeight = 250;
       variant="masonry"
       cols={cols}
       rowHeight={rowHeight}
+      gap={20}
       
     >
       {itemData.map((item, index) => {
@@ -78,19 +100,20 @@ if (lg) rowHeight = 250;
         key={item.img} 
         cols={item.cols || 1} 
         rows={item.rows || 1}
+        
 
       onMouseEnter={() => setHoveredIndex(index)}
       onMouseLeave={() => setHoveredIndex(null)}
       onClick={() => navigate(`/preview/${item.title}`, {state: {itemData}}  )}
 
       sx={{
-        borderRadius: 3,
+        borderRadius: 5,
         overflow: "hidden",
         transition: "transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease",
-        transform: isHovered ? "scale(1.01)" : isDimmed ? "scale(0.94)" : "scale(0.96)",
+        transform: isHovered ? "scale(1.08)" : isDimmed ? "scale(1)" : "scale(1)",
         opacity: isDimmed ? 0.9 : 1,
         boxShadow: isHovered ? "0 0 30px rgba(255, 255, 255, 0.93)" : "none",
-        zIndex: isHovered ? 10 : 1,
+        zIndex: isHovered ? 10 : 0,
         cursor:"pointer"
       }}
       >
@@ -120,6 +143,8 @@ if (lg) rowHeight = 250;
 })}
     </ImageList>
     </Box>
+
+    <Footer/>
    </div>
 
   );
